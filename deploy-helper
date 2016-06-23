@@ -49,6 +49,10 @@ if ! [ -d "$SSL" ]; then
   openssl x509 -req -days 365 -in $SSL/jupyter.csr -signkey $SSL/ssl.key -out $SSL/ssl.crt
 fi
 
+# Matlab config
+MATLAB_ROOT=/usr/local/MATLAB/R2015b
+MATLAB_LOGS=$WORKING
+MATLAB_MAC_ADDRESS="00:00:00:00:00:00"
 
 # Launch JupyterHub!
 # Server port must match the port above in OAUTH_CALLBACK_URL.  443 is default for HTTPS.
@@ -57,7 +61,8 @@ fi
 # Capture the log to the Docker host at jupyter.log
 PORT=443
 sudo docker run -p $PORT:$PORT \
+  -v $MATLAB_ROOT:/usr/local/MATLAB/from-host \
+  -v $MATLAB_LOGS:/var/log/matlab \
   -v $WORKING:/var/jupyter \
   --env-file=$WORKING/env-file \
-  -t -i ninjaben/jupyter-hub-oauth-isetbio --port $PORT
-
+  -t -i ninjaben/jupyter-hub-oauth-matlab --port $PORT
