@@ -7,6 +7,9 @@ FROM ninjaben/jupyter-hub-oauth-matlab
 
 MAINTAINER Ben Heasly <benjamin.heasly@gmail.com>
 
+# remote data toolbox and gradle will need java
+RUN apt-get install -y openjdk-7-jre
+
 # pre-deploy a few toolboxes to a shared folder expected by toolbox-toolbox
 RUN git clone --depth=1 https://github.com/isetbio/isetbio.git /srv/toolbox-toolbox/toolboxes/isetbio
 RUN git clone --depth=1 https://github.com/isetbio/RemoteDataToolbox.git /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox
