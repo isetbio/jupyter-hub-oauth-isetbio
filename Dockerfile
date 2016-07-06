@@ -16,8 +16,10 @@ RUN git clone --depth=1 https://github.com/isetbio/RemoteDataToolbox.git /srv/to
 
 # let jupyter group pull on these repos
 RUN chown -R :jupyter /srv/toolbox-toolbox/toolboxes/isetbio \
+  && chmod -R 775 /srv/toolbox-toolbox/toolboxes/isetbio \
   && git -C /srv/toolbox-toolbox/toolboxes/isetbio config core.sharedRepository group
 RUN chown -R :jupyter /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox \
+  && chmod -R 775 /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox \
   && git -C /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox config core.sharedRepository group
 
 # add a common toolbox configuration to shared folder expected by toolbox-toolbox
