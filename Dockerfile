@@ -19,7 +19,7 @@ RUN git -C /srv/toolbox-toolbox/toolboxes/isetbio pull \
   && chown -R :jupyter /srv/toolbox-toolbox/toolboxes/isetbio \
   && chmod -R 775 /srv/toolbox-toolbox/toolboxes/isetbio \
   && git -C /srv/toolbox-toolbox/toolboxes/isetbio config core.sharedRepository group
-RUN git -C /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox \
+RUN git -C /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox pull \
   && chown -R :jupyter /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox \
   && chmod -R 775 /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox \
   && git -C /srv/toolbox-toolbox/toolboxes/RemoteDataToolbox config core.sharedRepository group
