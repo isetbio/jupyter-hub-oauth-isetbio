@@ -12,6 +12,11 @@
 		"url": "https:\/\/github.com\/isetbio\/RemoteDataToolbox.git"
 	},
 	{
+		"name": "IBIOColorDetect",
+		"ref": "",
+		"type": "git",
+		"url": "https:\/\/github.com\/isetbio\/IBIOColorDetect.git"
+	},	{
 		"name": "notebooks",
 		"ref": "",
 		"type": "git",
